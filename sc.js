@@ -44,11 +44,11 @@ function appendToDisplay(value) {
 
 function handleOperator(newOperator) {
     if (operator !== '' && currentInput !== '') {
-        calculateResult();
+        calculateResult(); // 如果已有运算符和输入，先计算
     }
     operator = newOperator;
-    previousInput = currentInput;
-    currentInput = ''; // 清空当前输入
+    previousInput = currentInput; // 保存当前输入作为上一个操作数
+    currentInput = ''; // 清空当前输入，等待下一个数字输入
 }
 
 function calculateResult() {
@@ -68,9 +68,10 @@ function calculateResult() {
         const result = eval(expression); // 计算结果
         document.getElementById('display').textContent = result;
 
-        previousInput = result.toString(); // 保存结果为下次的操作数
-        currentInput = ''; // 清空当前输入
-        operator = ''; // 清空操作符
+        // 更新状态，允许用户继续计算，避免连续使用计算结果
+        previousInput = result.toString(); // 保存计算结果作为新的操作数
+        currentInput = ''; // 清空当前输入，等待下一个操作
+        operator = ''; // 清空操作符，等待下一个运算符
     } catch (e) {
         isError = true;
         document.getElementById('display').textContent = '错误';
