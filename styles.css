@@ -1,6 +1,18 @@
+:root {
+    --main-bg-color: #f0f0f5;
+    --main-text-color: #333;
+    --button-bg-color: #f4f4f9;
+    --button-hover-color: #e0e0e0;
+    --button-active-color: #d0d0d0;
+    --operator-color: #ff9500;
+    --clear-color: #ff3b30;
+    --equal-color: #34c759;
+    --font-stack: 'Arial', sans-serif;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
+    font-family: var(--font-stack);
+    background-color: var(--main-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +52,7 @@ body {
 }
 
 .button {
-    background-color: #f4f4f9;
+    background-color: var(--button-bg-color);
     border: none;
     padding: 20px;
     font-size: 24px;
@@ -50,26 +62,37 @@ body {
 }
 
 .button:hover {
-    background-color: #e0e0e0;
+    background-color: var(--button-hover-color);
 }
 
 .button:active {
-    background-color: #d0d0d0;
+    background-color: var(--button-active-color);
 }
 
 .operator {
-    background-color: #ff9500;
+    background-color: var(--operator-color);
     color: white;
 }
 
 .clear {
-    background-color: #ff3b30;
+    background-color: var(--clear-color);
     color: white;
-    grid-column: span 1;
 }
 
 .equal {
-    background-color: #34c759;
+    background-color: var(--equal-color);
     color: white;
-    grid-row: span 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .calculator {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* 可访问性 */
+.button:focus {
+    outline: 2px solid var(--equal-color);
 }

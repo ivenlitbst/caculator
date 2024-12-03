@@ -70,7 +70,7 @@ function calculateResult() {
 
         // 更新状态，允许用户继续计算，避免连续使用计算结果
         previousInput = result.toString(); // 保存计算结果作为新的操作数
-        currentInput = ''; // 清空当前输入，等待下一个操作
+        //currentInput = ''; // 清空当前输入，等待下一个操作
         operator = ''; // 清空操作符，等待下一个运算符
     } catch (e) {
         isError = true;
